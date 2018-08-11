@@ -13,6 +13,7 @@ struct	s_char
 	int	accuracy;
 	int	crit_chance;
 	int	class;
+	int	spell_nbr;
 };
 
 void	choose_class(struct s_char *character)
@@ -61,16 +62,18 @@ void	init_stat(struct s_char *character)
 		character->strenght = 5;
 		character->accuracy = 85;
 		character->crit_chance = (character->agility * 5);
+		character->spell_nbr = 0;
 	}
 	if (character->class == 2)
 	{
 		character->hp = 30;
 		character->mana = 10;
 		character->speed = 5;
-		character->agility = 4;
+		character->agility = 5;
 		character->strenght = 3;
 		character->accuracy = 85;
 		character->crit_chance = (character->agility * 5);
+		character->spell_nbr = 0;
 	}
 	if (character->class == 3)
 	{
@@ -81,18 +84,20 @@ void	init_stat(struct s_char *character)
 		character->strenght = 5;
 		character->accuracy = 85;
 		character->crit_chance = (character->agility * 5);
+		character->spell_nbr = 0;
 	}
 }
 
 void	print_stat(struct s_char *character)
 {
-	printf("HP = %d\n", character->hp);
-	printf("Mana = %d\n", character->mana);
-	printf("Vitesse = %d\n", character->speed);
-	printf("Agilité = %d\n", character->agility);
-	printf("Force = %d\n", character->strenght);
-	printf("Précision = %d\n", character->accuracy);
-	printf("Chances de critique = %d\n", character->crit_chance);
+	printf("Nom : %s\n", character->name);
+	printf("HP : %d\n", character->hp);
+	printf("Mana : %d\n", character->mana);
+	printf("Vitesse : %d\n", character->speed);
+	printf("Agilité : %d\n", character->agility);
+	printf("Force : %d\n", character->strenght);
+	printf("Précision : %d\n", character->accuracy);
+	printf("Chances de critique : %d\n", character->crit_chance);
 }
 
 void	create_char(struct s_char *character)
