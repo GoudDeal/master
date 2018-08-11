@@ -107,10 +107,12 @@ void	create_char(struct s_char *character)
 	choose_class(character);
 	init_stat(character);
 	printf("Voir les stats avant de continuer ? [O/N]\n");
-	while ((temp = getchar()) != 'O' && (temp = getchar()) != 'N')
+	temp = getchar();
+	while (temp  != 79 && temp != 'N')
 	{
 		temp = getchar();
-		printf("Hum... Veuillez mettre O pour Oui ou N pour Non.\n");
+		if (temp != 10 && temp != 'O' && temp != 'N')
+			printf("Hum... Veuillez mettre O pour Oui ou N pour Non.\n");
 	}
 	if (temp == 'O')
 		print_stat(character);
