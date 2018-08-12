@@ -1,18 +1,15 @@
 #include "create_char.c"
+#include "init_spell.c"
 #include <stdio.h>
 
 int	main(int argc, char **argv)
 {
 	struct	s_char	character;
-	struct	s_spell spell1;
-	struct	s_spell spell2;
-	struct	s_spell spell3;
-	struct	s_spell	spell4;
+	struct	s_spell	spell1;
+	struct	s_spell	spell2;
 
 	create_char(&character);
-	init_spell(&spell1);
-	init_spell(&spell2);
-	init_spell(&spell3);
-	init_spell(&spell4);
+	init_spell(&character, &spell1);
+	init_spell(&character, &spell2);
 	return (0);
 }
