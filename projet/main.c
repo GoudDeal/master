@@ -1,4 +1,3 @@
-#include "create_char.c"
 #include "init_spell.c"
 #include <stdio.h>
 
