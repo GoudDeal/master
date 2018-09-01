@@ -2,8 +2,9 @@
 #define __LIB__
 #include <stdio.h>
 #include <string.h>
-#include "create_char.c"
-#include "init_spell.c"
+#include "libchar.a"
+//#include "create_char.c"
+//#include "init_spell.c"
 #endif
 
 int	main(int argc, char **argv)

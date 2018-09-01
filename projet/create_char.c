@@ -1,7 +1,6 @@
-#ifndef __LIB__
-#define __LIB__
+//#ifndef __LIB__
+//#define __LIB__
 #include <stdio.h>
-#endif
 
 struct s_char
 {
@@ -49,7 +48,7 @@ void	choose_class(struct s_char *character)
 	if (character->class == 2)
 		printf("Vous serez un perfide voleur, se tapissant dans l'ombre avant de porter le coup fatal.\n");
 	if (character->class == 3)
-		printf("Vous serez un piscineux de merde. C'est tout.\n");
+		printf("Vous serez un piscineux nul. C'est tout.\n");
 }
 
 void	init_stat(struct s_char *character)
@@ -123,3 +122,5 @@ void	create_char(struct s_char *character)
 	if (temp == 'O')
 		print_stat(character);
 }
+
+//#endif

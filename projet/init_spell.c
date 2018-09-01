@@ -1,9 +1,9 @@
-#ifndef __LIB__
-#define __LIB__
+//#ifndef __LIB__
+//#define __LIB__
 #include "create_char.c"
 #include <string.h>
 #include <stdio.h>
-#endif
+//#endif
 
 struct s_spell
 {
@@ -58,7 +58,7 @@ void	init_spell(struct s_char *character, struct s_spell *spell)
 	}
 	if (character->class == 2 && character->spell_nbr == 0)
 	{
-		strcpy(spell->name, "Coup de pute");
+		strcpy(spell->name, "Coup dans le dos");
 		spell->mana_cost = 0;
 		spell->dmg = character->strenght + (character->agility / 5);
 		spell->strenght_modifier = 0;
@@ -102,3 +102,4 @@ void	init_spell(struct s_char *character, struct s_spell *spell)
 	}
 	character->spell_nbr++;
 }
+
