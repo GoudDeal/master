@@ -1,15 +1,12 @@
-#ifndef __LIB__
-#define __LIB__
+//#ifndef __LIB__
+//# define __LIB__
 #include <stdio.h>
-#include <string.h>
-#include "libchar.a"
-//#include "create_char.c"
-//#include "init_spell.c"
-#endif
+#include "create_char.h"
+#include "init_spell.h"
 
-int	main(int argc, char **argv)
+int		main(int argc, char **argv)
 {
-	int		temp;
+	int	temp;
 
 	temp = 0;
 	struct	s_char	character;
@@ -34,3 +31,5 @@ int	main(int argc, char **argv)
 	}
 	return (0);
 }
+
+//#endif

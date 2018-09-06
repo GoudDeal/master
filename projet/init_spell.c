@@ -1,9 +1,8 @@
-//#ifndef __LIB__
-//#define __LIB__
-#include "create_char.c"
+#ifndef __INIT_SPELL__
+# define __INIT_SPELL__
 #include <string.h>
 #include <stdio.h>
-//#endif
+#include "create_char.h"
 
 struct s_spell
 {
@@ -102,4 +101,4 @@ void	init_spell(struct s_char *character, struct s_spell *spell)
 	}
 	character->spell_nbr++;
 }
-
+#endif

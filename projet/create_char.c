@@ -1,5 +1,5 @@
-//#ifndef __LIB__
-//#define __LIB__
+#ifndef __CREATE_CHAR__
+# define __CREATE_CHAR__
 #include <stdio.h>
 
 struct s_char
@@ -18,6 +18,8 @@ struct s_char
 
 void	choose_class(struct s_char *character)
 {
+	character->class = 0;
+
 	printf("Vous allez maintenant devoir choisir une classe.\n");
 	printf("Il y a trois classes disponibles. ");
 	printf("Ce sont elles qui détermineront vos stats et vos sorts de départ.\n");
@@ -36,12 +38,14 @@ void	choose_class(struct s_char *character)
 	printf("alors pourquoi vous ?). Il a également un bonus de vitesse parce que ");
 	printf("Tequila, Heineken, pas le temps de niaiser.\n");
 	printf("Choisissez donc votre classe avec 1, 2 ou 3.\n");
-	scanf("%d", &character->class);
+	scanf("%1d", &character->class);
 	while (character->class < 1 || character->class > 3)
 	{
 		printf("Visiblement, vous ne savez pas lire.\n");
 		printf("Les choix disponibles sont 1, 2 ou 3.\n");
-		scanf("%d", &character->class);
+		printf("Valeur de class = %d\n", character->class);
+		scanf("%1d", &character->class);
+
 	}
 	if (character->class == 1)
 		printf("Vous serez un fier guerrier, bravant les ténèbres pour occire le mal (ou pas).\n");
@@ -102,25 +106,24 @@ void	print_stat(struct s_char *character)
 
 void	create_char(struct s_char *character)
 {
-	int		temp;
+	char	temp;
 
-	temp = 0;
 	printf("Choisissez un nom.\n");
 	printf("(20 caractères max.)\n");
-	scanf("%s", character->name);
+	scanf("%20s", character->name);
 	printf("%s %s \n\n", "Votre nom est", character->name);
 	choose_class(character);
 	init_stat(character);
 	printf("Voir les stats avant de continuer ? [O/N]\n");
-	temp = getchar();
+	scanf("%1s", &temp);
 	while (temp != 'O' && temp != 'N')
 	{
-		temp = getchar();
 		if (temp != 10 && temp != 'O' && temp != 'N')
 			printf("Hum... Veuillez mettre O pour Oui ou N pour Non.\n");
+		scanf("%1s", &temp);
 	}
 	if (temp == 'O')
 		print_stat(character);
 }
 
-//#endif
+#endif
