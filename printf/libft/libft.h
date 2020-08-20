@@ -6,7 +6,7 @@
 /*   By: dcyprien <dcyprien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/05 12:28:40 by dcyprien          #+#    #+#             */
-/*   Updated: 2020/08/18 18:38:34 by dcyprien         ###   ########.fr       */
+/*   Updated: 2020/08/20 16:20:47 by dcyprien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -136,9 +136,11 @@ int					ft_set_padding_ptr(t_format format, long int arg);
 t_format			ft_reset(t_format format);
 int					ft_putstr_int(char *s, int fd, t_format format, int arg);
 t_format			ft_set_precision_int(t_format format, int arg);
-int					ft_putstr_unsigned(char *s, int fd, t_format format, unsigned int arg);
+int					ft_putstr_unsigned(char *s, int fd,
+					t_format format, unsigned int arg);
 t_format			ft_set_padding_unsigned(t_format format, unsigned int arg);
-t_format			ft_set_precision_unsigned(t_format format, unsigned int arg);
+t_format			ft_set_precision_unsigned(t_format format,
+					unsigned int arg);
 t_format			ft_set_padding_hexa(t_format format, long int arg);
 t_format			ft_set_precision_hexa(t_format format, long int arg);
 t_format			ft_set_precision_str(t_format format, char *arg);
