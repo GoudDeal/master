@@ -6,7 +6,7 @@
 /*   By: dcyprien <dcyprien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/07 16:25:06 by dcyprien          #+#    #+#             */
-/*   Updated: 2020/08/18 23:47:55 by dcyprien         ###   ########.fr       */
+/*   Updated: 2020/08/21 20:09:28 by dcyprien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ int				ft_set_padding_ptr(t_format format, long int arg)
 	else if (ft_size_hexa(arg) < 8)
 		format.padding = format.width - (2 + ft_size_hexa(arg));
 	else if (format.width > 14)
-		format.padding = format.width - 11;
+		format.padding = format.width - (2 + ft_size_hexa(arg));
 	else
 		format.padding = 0;
 	return (format.padding);
