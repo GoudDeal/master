@@ -6,7 +6,7 @@
 /*   By: dcyprien <dcyprien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/18 12:07:21 by dcyprien          #+#    #+#             */
-/*   Updated: 2020/08/18 23:27:52 by dcyprien         ###   ########.fr       */
+/*   Updated: 2020/08/26 18:37:37 by dcyprien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int		ft_putstr_fd(char *s, int fd, t_format format)
 
 	(void)fd;
 	i = 0;
-	if (format.precision == 1)
+	if (format.precision == 1 && format.type != 'p')
 	{
 		while (format.prec_size > 0 && s[i])
 		{
@@ -88,7 +88,7 @@ int		ft_putstr_unsigned(char *s, int fd, t_format format, unsigned int arg)
 int		ft_putptr_fd(long int arg, int fd, t_format format)
 {
 	(void)fd;
-	if (arg == 0)
+	if (arg == 0 && format.min != 0)
 		return (format.writecount = ft_putstr_fd("0x0", 1, format));
 	format.writecount = ft_putchar_fd('0', 1, format);
 	format.writecount = ft_putchar_fd('x', 1, format);
