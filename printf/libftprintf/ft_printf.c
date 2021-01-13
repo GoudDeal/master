@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print.c                                         :+:      :+:    :+:   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dcyprien <dcyprien@student.42.fr>          +#+  +:+       +#+        */
+/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/28 15:22:05 by dcyprien          #+#    #+#             */
-/*   Updated: 2020/08/20 15:58:28 by dcyprien         ###   ########.fr       */
+/*   Updated: 2021/01/13 17:38:07 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libftprintf.h"
 
 int		ft_printf(const char *str, ...)
 {
@@ -25,7 +25,7 @@ int		ft_printf(const char *str, ...)
 	while (str[i])
 	{
 		if (str[i] != '%' && str[i])
-			format.writecount = ft_putchar_fd(str[i++], 1, format);
+			format.writecount = ft_putchar_ptf(str[i++], 1, format);
 		else
 		{
 			format = ft_reset(format);

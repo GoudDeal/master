@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dcyprien <dcyprien@student.42.fr>          +#+  +:+       +#+        */
+/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/28 15:22:05 by dcyprien          #+#    #+#             */
-/*   Updated: 2020/08/26 18:38:54 by dcyprien         ###   ########.fr       */
+/*   Updated: 2021/01/13 17:38:07 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libftprintf.h"
 
 int			ft_print(t_format format, va_list *va)
 {
@@ -43,13 +43,13 @@ int			ft_print_char(t_format format, va_list *va)
 	arg = va_arg(*va, int);
 	if (format.inversed == 1)
 	{
-		format.writecount = ft_putchar_fd(arg, 1, format);
+		format.writecount = ft_putchar_ptf(arg, 1, format);
 		format.writecount = ft_print_padding_char(format);
 	}
 	else
 	{
 		format.writecount = ft_print_padding_char(format);
-		format.writecount = ft_putchar_fd(arg, 1, format);
+		format.writecount = ft_putchar_ptf(arg, 1, format);
 	}
 	return (format.writecount);
 }
@@ -65,12 +65,12 @@ int			ft_print_str(t_format format, va_list *va)
 	format = ft_set_padding_str(format, arg);
 	if (format.inversed)
 	{
-		format.writecount = ft_putstr_fd(arg, 1, format);
+		format.writecount = ft_putstr_fd_printf(arg, 1, format);
 		format.writecount = ft_print_padding_str(format, arg);
 		return (format.writecount);
 	}
 	format.writecount = ft_print_padding_str(format, arg);
-	format.writecount = ft_putstr_fd(arg, 1, format);
+	format.writecount = ft_putstr_fd_printf(arg, 1, format);
 	return (format.writecount);
 }
 
@@ -107,7 +107,7 @@ int			ft_print_int(t_format format, va_list *va)
 	char	*str;
 
 	arg = va_arg(*va, int);
-	str = ft_itoa(arg);
+	str = ft_itoa_printf(arg);
 	format = ft_set_precision_int(format, arg);
 	format = ft_set_padding_int(format, arg);
 	if (format.inversed)

@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   libftprintf.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dcyprien <dcyprien@student.42.fr>          +#+  +:+       +#+        */
+/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/05 12:28:40 by dcyprien          #+#    #+#             */
-/*   Updated: 2020/08/20 16:20:47 by dcyprien         ###   ########.fr       */
+/*   Updated: 2021/01/13 17:38:07 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#ifndef LIBFTPRINTF_H
+# define LIBFTPRINTF_H
 # define TYPE "cspdiuxX%"
 # define FLAGS "-.*0"
 # define HEXA "0123456789abcdef"
@@ -71,7 +71,7 @@ size_t				ft_strlcpy(char *dst, const char *src, size_t dstsize);
 size_t				ft_strlcat(char *dst, const char *src, size_t dstsize);
 char				*ft_strnstr(const char *haystack, const char *needle,
 size_t len);
-int					ft_atoi(const char *str);
+int					ft_atoi_printf(const char *str);
 char				*ft_strdup(const char *s1);
 char				*ft_substr(char const *s, unsigned int start,
 size_t len);
@@ -79,12 +79,12 @@ void				*ft_calloc(size_t count, size_t size);
 char				*ft_strjoin(char const *s1, char const *s2);
 char				*ft_strtrim(char const *s1, char const *set);
 char				**ft_split(char const *s, char c);
-char				*ft_itoa(int n);
+char				*ft_itoa_printf(int n);
 char				*ft_strmapi(char const *s, char (*f)(unsigned int, char));
-int					ft_putchar_fd(char c, int fd, t_format format);
-int					ft_putstr_fd(char *s, int fd, t_format format);
+int					ft_putchar_ptf(char c, int fd, t_format format);
+int					ft_putstr_fd_printf(char *s, int fd, t_format format);
 void				ft_putendl_fd(char *s, int fd, t_format format);
-int					ft_putnbr_fd(int n, int fd, t_format format);
+int					ft_putnbr_fd_printf(int n, int fd, t_format format);
 t_list				*ft_lstnew(void *content);
 void				ft_lstadd_front(t_list **alst, t_list *new);
 int					ft_lstsize(t_list *lst);
@@ -95,7 +95,7 @@ void				ft_lstiter(t_list *lst, void (*f)(void *));
 t_list				*ft_lstmap(t_list *lst, void *(*f)(void *),
 void (*del)(void *));
 t_list				*ft_lstlast(t_list *lst);
-int					ft_cinset(const char c, const char *set);
+int					ft_cinset_printf(const char c, const char *set);
 t_format			ft_initialize(t_format *format);
 t_format			ft_setflags(t_format format, const char *str, va_list *va);
 int					ft_isflag(const char *flag);
@@ -117,7 +117,7 @@ int					ft_print_int(t_format format, va_list *va);
 int					ft_size_int(int arg);
 t_format			ft_set_padding_int(t_format format, int arg);
 int					ft_putnbr_unsigned(long int nb, t_format format);
-char				*ft_itoa_unsigned(unsigned int arg);
+char				*ft_itoa_unsigned_printf(unsigned int arg);
 int					ft_print_unsigned(t_format format, va_list *va);
 int					ft_power(int n, int exp);
 int					get_size(unsigned int n);

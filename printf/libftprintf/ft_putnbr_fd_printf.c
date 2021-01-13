@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_putnbr_fd_printf.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dcyprien <dcyprien@student.42.fr>          +#+  +:+       +#+        */
+/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/18 12:17:10 by dcyprien          #+#    #+#             */
-/*   Updated: 2020/08/26 18:23:59 by dcyprien         ###   ########.fr       */
+/*   Updated: 2021/01/13 17:38:07 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libftprintf.h"
 
-int		ft_putnbr_fd(int nb, int fd, t_format format)
+int		ft_putnbr_fd_printf(int nb, int fd, t_format format)
 {
 	long int n;
 
@@ -20,15 +20,15 @@ int		ft_putnbr_fd(int nb, int fd, t_format format)
 	if (n < 0)
 	{
 		n = -n;
-		format.writecount = ft_putchar_fd('-', fd, format);
+		format.writecount = ft_putchar_ptf('-', fd, format);
 	}
 	if (n > 9)
 	{
-		format.writecount = ft_putnbr_fd(n / 10, fd, format);
-		format.writecount = ft_putnbr_fd(n % 10, fd, format);
+		format.writecount = ft_putnbr_fd_printf(n / 10, fd, format);
+		format.writecount = ft_putnbr_fd_printf(n % 10, fd, format);
 	}
 	else
-		format.writecount = ft_putchar_fd(n + '0', fd, format);
+		format.writecount = ft_putchar_ptf(n + '0', fd, format);
 	return (format.writecount);
 }
 
@@ -46,7 +46,7 @@ int		ft_putnbr_base(long int nb, char *base, t_format format)
 			format.writecount = ft_putnbr_base(arg_unsigned % 16, base, format);
 		}
 		else
-			format.writecount = ft_putchar_fd(base[arg_unsigned], 1, format);
+			format.writecount = ft_putchar_ptf(base[arg_unsigned], 1, format);
 		return (format.writecount);
 	}
 	if (format.int_zero)
@@ -57,7 +57,7 @@ int		ft_putnbr_base(long int nb, char *base, t_format format)
 		format.writecount = ft_putnbr_base(nb % 16, base, format);
 	}
 	else
-		format.writecount = ft_putchar_fd(base[nb], 1, format);
+		format.writecount = ft_putchar_ptf(base[nb], 1, format);
 	return (format.writecount);
 }
 
@@ -68,10 +68,10 @@ int		ft_putnbr_unsigned(long int nb, t_format format)
 	n = nb;
 	if (n > 9)
 	{
-		format.writecount = ft_putnbr_fd(n / 10, 1, format);
-		format.writecount = ft_putnbr_fd(n % 10, 1, format);
+		format.writecount = ft_putnbr_fd_printf(n / 10, 1, format);
+		format.writecount = ft_putnbr_fd_printf(n % 10, 1, format);
 	}
 	else
-		format.writecount = ft_putchar_fd(n + '0', 1, format);
+		format.writecount = ft_putchar_ptf(n + '0', 1, format);
 	return (format.writecount);
 }

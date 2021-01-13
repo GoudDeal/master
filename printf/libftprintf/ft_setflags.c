@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_setflags.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dcyprien <dcyprien@student.42.fr>          +#+  +:+       +#+        */
+/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/26 21:29:12 by dcyprien          #+#    #+#             */
-/*   Updated: 2020/08/18 23:25:43 by dcyprien         ###   ########.fr       */
+/*   Updated: 2021/01/13 17:38:07 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libftprintf.h"
 
 int			ft_isflag(const char *flag)
 {
@@ -19,9 +19,10 @@ int			ft_isflag(const char *flag)
 	if (flag != NULL && flag[0] == '%')
 	{
 		i = 1;
-		while (flag[i] && (ft_isdigit(flag[i]) || ft_cinset(flag[i], " -.*")))
+		while (flag[i] && (ft_isdigit(flag[i])
+		|| ft_cinset_printf(flag[i], " -.*")))
 			i++;
-		return (ft_cinset(flag[i], TYPE));
+		return (ft_cinset_printf(flag[i], TYPE));
 	}
 	return (0);
 }
@@ -35,7 +36,7 @@ char		*ft_getflags(const char *str)
 		i = 1;
 		while (str[i])
 		{
-			if (ft_cinset(str[i], TYPE))
+			if (ft_cinset_printf(str[i], TYPE))
 				return (ft_substr(str, 0, i + 1));
 			i++;
 		}
@@ -59,11 +60,11 @@ t_format	ft_setflags(t_format format, const char *flags, va_list *va)
 	i = 1;
 	while (flags[i])
 	{
-		if (ft_cinset(flags[i], TYPE))
+		if (ft_cinset_printf(flags[i], TYPE))
 			break ;
 		if (flags[i] == ' ')
 		{
-			format.writecount = ft_putchar_fd(' ', 1, format);
+			format.writecount = ft_putchar_ptf(' ', 1, format);
 			i++;
 		}
 		if (!format.set_width)
@@ -71,7 +72,7 @@ t_format	ft_setflags(t_format format, const char *flags, va_list *va)
 		if (flags[i++] == '.' && !format.set_min)
 			format = ft_set_info_prec(format, &flags[i - 1]);
 	}
-	if (ft_cinset(flags[i], TYPE))
+	if (ft_cinset_printf(flags[i], TYPE))
 		format.type = flags[i];
 	if (format.precision_star || format.width_star)
 		format = ft_set_stars(format, va);
@@ -92,7 +93,7 @@ t_format	ft_set_info_prec(t_format format, const char *flags)
 	}
 	if (ft_isdigit(flags[i]) || flags[i] == '-')
 	{
-		format.min = ft_atoi(&flags[i]);
+		format.min = ft_atoi_printf(&flags[i]);
 		return (format);
 	}
 	return (format);
@@ -108,7 +109,7 @@ t_format	ft_set_width(t_format format, const char *flags)
 		format.width_star = 1;
 	if (ft_isdigit(flags[i]) && flags[i] != '0')
 	{
-		format.width = ft_atoi(&flags[i]);
+		format.width = ft_atoi_printf(&flags[i]);
 		return (format);
 	}
 	while (flags[i] == '0' || flags[i] == '-')
@@ -123,6 +124,6 @@ t_format	ft_set_width(t_format format, const char *flags)
 	if (flags[i] == '*' && flags[i - 1] != '.')
 		format.width_star = 1;
 	if (ft_isdigit(flags[i]))
-		format.width = ft_atoi(&flags[i]);
+		format.width = ft_atoi_printf(&flags[i]);
 	return (format);
 }

@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_cinset.c                                        :+:      :+:    :+:   */
+/*   ft_cinset_printf.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dcyprien <dcyprien@student.42.fr>          +#+  +:+       +#+        */
+/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/06 16:37:46 by dboyer            #+#    #+#             */
-/*   Updated: 2020/08/18 23:26:18 by dcyprien         ###   ########.fr       */
+/*   Updated: 2021/01/13 17:23:12 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libftprintf.h"
 
-int	ft_cinset(const char c, const char *set)
+int	ft_cinset_printf(const char c, const char *set)
 {
 	int i;
 

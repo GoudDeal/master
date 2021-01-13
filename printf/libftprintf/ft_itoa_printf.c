@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   ft_itoa_printf.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dcyprien <dcyprien@student.42.fr>          +#+  +:+       +#+        */
+/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/12 13:12:37 by dcyprien          #+#    #+#             */
-/*   Updated: 2020/08/18 23:33:49 by dcyprien         ###   ########.fr       */
+/*   Created: 2021/01/13 17:26:31 by user42            #+#    #+#             */
+/*   Updated: 2021/01/13 17:27:30 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libftprintf.h"
 
 int		get_size(unsigned int n)
 {
@@ -33,7 +33,7 @@ int		ft_power(int n, int exp)
 	return (ft_power(n * 10, exp - 1));
 }
 
-char	*ft_itoa(int n)
+char	*ft_itoa_printf(int n)
 {
 	int				n_size;
 	char			*result;

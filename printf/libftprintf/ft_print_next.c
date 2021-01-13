@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print_next.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dcyprien <dcyprien@student.42.fr>          +#+  +:+       +#+        */
+/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/03 14:26:40 by dcyprien          #+#    #+#             */
-/*   Updated: 2020/08/18 23:43:02 by dcyprien         ###   ########.fr       */
+/*   Updated: 2021/01/13 17:41:58 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libftprintf.h"
 
 int		ft_print_unsigned(t_format format, va_list *va)
 {
@@ -18,7 +18,7 @@ int		ft_print_unsigned(t_format format, va_list *va)
 	char				*str;
 
 	arg = va_arg(*va, unsigned int);
-	str = ft_itoa_unsigned(arg);
+	str = ft_itoa_unsigned_printf(arg);
 	format = ft_set_precision_unsigned(format, arg);
 	format = ft_set_padding_unsigned(format, arg);
 	if (format.inversed)
@@ -39,21 +39,21 @@ int		ft_print_pourcent(t_format format)
 	(void)format;
 	if (format.width && format.inversed)
 	{
-		format.writecount = ft_putchar_fd('%', 1, format);
+		format.writecount = ft_putchar_ptf('%', 1, format);
 		format.padding = format.width - 1;
 		while (format.padding--)
-			format.writecount = ft_putchar_fd(' ', 1, format);
+			format.writecount = ft_putchar_ptf(' ', 1, format);
 		return (format.writecount);
 	}
 	if (format.width)
 	{
 		format.padding = format.width - 1;
 		while (format.padding--)
-			format.writecount = ft_putchar_fd(format.fill, 1, format);
-		format.writecount = ft_putchar_fd('%', 1, format);
+			format.writecount = ft_putchar_ptf(format.fill, 1, format);
+		format.writecount = ft_putchar_ptf('%', 1, format);
 		return (format.writecount);
 	}
-	format.writecount = ft_putchar_fd('%', 1, format);
+	format.writecount = ft_putchar_ptf('%', 1, format);
 	return (format.writecount);
 }
 
@@ -67,7 +67,7 @@ int		ft_print_hex(t_format format, va_list *va)
 	if (format.inversed)
 	{
 		while (format.prec_size-- > 0)
-			format.writecount = ft_putchar_fd('0', 1, format);
+			format.writecount = ft_putchar_ptf('0', 1, format);
 		format.writecount = ft_putnbr_base(arg, HEXA, format);
 		format.writecount = ft_print_padding_unsigned(format, arg);
 		return (format.writecount);
@@ -75,7 +75,7 @@ int		ft_print_hex(t_format format, va_list *va)
 	if (format.padding)
 		format.writecount = ft_print_padding_unsigned(format, arg);
 	while (format.prec_size-- > 0)
-		format.writecount = ft_putchar_fd('0', 1, format);
+		format.writecount = ft_putchar_ptf('0', 1, format);
 	format.writecount = ft_putnbr_base(arg, HEXA, format);
 	return (format.writecount);
 }
@@ -90,7 +90,7 @@ int		ft_print_hex_maj(t_format format, va_list *va)
 	if (format.inversed)
 	{
 		while (format.prec_size-- > 0)
-			format.writecount = ft_putchar_fd('0', 1, format);
+			format.writecount = ft_putchar_ptf('0', 1, format);
 		format.writecount = ft_putnbr_base(arg, HEXA_MAJ, format);
 		format.writecount = ft_print_padding_unsigned(format, arg);
 		return (format.writecount);
@@ -98,7 +98,7 @@ int		ft_print_hex_maj(t_format format, va_list *va)
 	if (format.padding)
 		format.writecount = ft_print_padding_unsigned(format, arg);
 	while (format.prec_size-- > 0)
-		format.writecount = ft_putchar_fd('0', 1, format);
+		format.writecount = ft_putchar_ptf('0', 1, format);
 	format.writecount = ft_putnbr_base(arg, HEXA_MAJ, format);
 	return (format.writecount);
 }
@@ -110,11 +110,11 @@ int		ft_print_null(t_format format, char *arg)
 	format = ft_set_padding_null(format);
 	if (format.inversed)
 	{
-		format.writecount = ft_putstr_fd("(null)", 1, format);
+		format.writecount = ft_putstr_fd_printf("(null)", 1, format);
 		format.writecount = ft_print_padding_null(format);
 		return (format.writecount);
 	}
 	format.writecount = ft_print_padding_null(format);
-	format.writecount = ft_putstr_fd("(null)", 1, format);
+	format.writecount = ft_putstr_fd_printf("(null)", 1, format);
 	return (format.writecount);
 }

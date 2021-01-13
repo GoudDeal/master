@@ -1,36 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcyprien <dcyprien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/08 10:29:59 by dcyprien          #+#    #+#             */
-/*   Updated: 2019/11/19 14:34:56 by dcyprien         ###   ########.fr       */
+/*   Created: 2019/11/05 12:20:32 by dcyprien          #+#    #+#             */
+/*   Updated: 2020/01/07 08:42:27 by dcyprien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <string.h>
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+#include "libftprintf.h"
+
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	char		*str;
-	size_t		i;
+	unsigned char *d;
+	unsigned char *s;
 
-	if (s != NULL)
+	if (dst != NULL && src != NULL && src != dst)
 	{
-		i = 0;
-		if (start >= ft_strlen((char *)s) || !(*s) || len == 0)
-			return (ft_strdup("\0"));
-		if (!(str = (char *)malloc(sizeof(char) * (len + 1))))
-			return (NULL);
-		while (s[start + i] && i < len)
+		if (src <= dst)
 		{
-			str[i] = s[start + i];
-			i++;
+			d = (unsigned char *)dst;
+			s = (unsigned char *)src;
+			while (len--)
+				d[len] = s[len];
 		}
-		str[i] = '\0';
-		return (str);
+		else
+			ft_memcpy(dst, src, len);
+		return (dst);
 	}
-	return (ft_strdup("\0"));
+	return (NULL);
 }

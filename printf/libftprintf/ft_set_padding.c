@@ -6,11 +6,11 @@
 /*   By: dcyprien <dcyprien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/07 16:25:06 by dcyprien          #+#    #+#             */
-/*   Updated: 2020/08/26 18:20:54 by dcyprien         ###   ########.fr       */
+/*   Updated: 2020/08/26 14:34:18 by dcyprien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libftprintf.h"
 
 t_format		ft_set_precision_str(t_format format, char *arg)
 {

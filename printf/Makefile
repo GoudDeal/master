@@ -3,39 +3,39 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: dcyprien </var/mail/dcyprien>              +#+  +:+       +#+         #
+#    By: user42 <user42@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/08/18 19:51:49 by dcyprien          #+#    #+#              #
-#    Updated: 2020/08/18 21:56:26 by dcyprien         ###   ########.fr        #
+#    Updated: 2021/01/13 17:39:44 by user42           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS	=	libft/ft_strlen.c				\
-		libft/ft_isalpha.c				\
-		libft/ft_isdigit.c				\
-		libft/ft_atoi.c					\
-		libft/ft_strdup.c				\
-		libft/ft_substr.c				\
-		libft/ft_itoa.c					\
-		libft/ft_putchar_fd.c			\
-		libft/ft_putstr_fd.c			\
-		libft/ft_putnbr_fd.c			\
-		libft/ft_printf.c				\
-		libft/ft_initialize.c			\
-		libft/ft_setflags.c				\
-		libft/ft_print.c				\
-		libft/ft_set_stars.c			\
-		libft/ft_print_padding.c		\
-		libft/ft_size.c					\
-		libft/ft_set_padding.c 			\
-		libft/ft_print_next.c			\
-		libft/ft_itoa_unsigned.c		\
-		libft/ft_set_padding_next.c		\
-		libft/ft_set_padding_null.c		\
-		libft/ft_print_precision.c 		\
-		libft/ft_print_padding_next.c	\
-		libft/ft_memmove.c				\
-		libft/ft_memcpy.c				
+SRCS	=	libftprintf/ft_strlen.c				\
+			libftprintf/ft_isalpha.c			\
+			libftprintf/ft_isdigit.c			\
+			libftprintf/ft_atoi_printf.c		\
+			libftprintf/ft_strdup.c				\
+			libftprintf/ft_substr.c				\
+			libftprintf/ft_itoa_printf.c				\
+			libftprintf/ft_putchar_ptf.c			\
+			libftprintf/ft_putstr_fd_printf.c			\
+			libftprintf/ft_putnbr_fd_printf.c			\
+			libftprintf/ft_printf.c				\
+			libftprintf/ft_initialize.c			\
+			libftprintf/ft_setflags.c			\
+			libftprintf/ft_print.c				\
+			libftprintf/ft_set_stars.c			\
+			libftprintf/ft_print_padding.c		\
+			libftprintf/ft_size.c				\
+			libftprintf/ft_set_padding.c 		\
+			libftprintf/ft_print_next.c			\
+			libftprintf/ft_itoa_unsigned_printf.c		\
+			libftprintf/ft_set_padding_next.c	\
+			libftprintf/ft_set_padding_null.c	\
+			libftprintf/ft_print_precision.c 	\
+			libftprintf/ft_print_padding_next.c	\
+			libftprintf/ft_memmove.c			\
+			libftprintf/ft_memcpy.c				
 
 NAME	=	libftprintf.a
 

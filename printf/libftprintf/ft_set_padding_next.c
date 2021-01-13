@@ -6,11 +6,11 @@
 /*   By: dcyprien <dcyprien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/11 15:11:09 by dcyprien          #+#    #+#             */
-/*   Updated: 2020/08/26 18:38:31 by dcyprien         ###   ########.fr       */
+/*   Updated: 2020/08/18 23:47:14 by dcyprien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libftprintf.h"
 
 t_format		ft_set_padding_unsigned(t_format format, unsigned int arg)
 {
@@ -110,14 +110,12 @@ t_format		ft_set_precision_ptr(t_format format, long int arg)
 {
 	if (format.precision)
 	{
-		if (arg == 0 && format.min == 0)
+		if (arg == 0)
 		{
 			format.precision = 0;
 			format.prec_size = 0;
 			return (format);
 		}
-		if (format.min == 0)
-			format.prec_size = 0;
 		if (format.min > ft_size_hexa(arg))
 			format.prec_size = format.min - ft_size_hexa(arg);
 		return (format);

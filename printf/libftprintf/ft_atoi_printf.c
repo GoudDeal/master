@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_atoi_printf.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dcyprien <dcyprien@student.42.fr>          +#+  +:+       +#+        */
+/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/06 15:50:11 by dcyprien          #+#    #+#             */
-/*   Updated: 2020/08/18 23:26:09 by dcyprien         ###   ########.fr       */
+/*   Updated: 2021/01/13 17:25:34 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libftprintf.h"
 
-int		ft_cinset(const char c, const char *set)
+int		ft_cinset_printf(const char c, const char *set)
 {
 	int i;
 
@@ -32,10 +32,10 @@ int		ft_cinset(const char c, const char *set)
 
 int		ft_isspace(const char c)
 {
-	return (ft_cinset(c, "\t\n\r\v\f "));
+	return (ft_cinset_printf(c, "\t\n\r\v\f "));
 }
 
-int		ft_atoi(const char *str)
+int		ft_atoi_printf_printf(const char *str)
 {
 	int	i;
 	int	result;
